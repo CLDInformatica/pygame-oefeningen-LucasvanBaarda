@@ -9,4 +9,4 @@ Gegeven is een lijst met games. Doe het volgende:
   - Print de lijst met games
 '''
 
-games = ["Minecraft", "Rust", "GTA V", "Hayday", "Clash of clans"]
+games = ["Minecraft", "Rust", "GTA V", "Hayday", "Clash of clans", "Super Mario Bros"]

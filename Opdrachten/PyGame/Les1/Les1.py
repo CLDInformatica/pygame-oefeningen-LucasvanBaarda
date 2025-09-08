@@ -12,12 +12,16 @@ import pygame
 pygame.init()
 
 screen = pygame.display.set_mode((800, 400))
-pygame.display.set_caption('Eerste game!')
+pygame.display.set_caption('Gamewindow set1')
 clock = pygame.time.Clock()
 running = True
 
-surface = pygame.Surface((100, 100))
+surface = pygame.Surface((800, 400))
 surface.fill("blue")
+
+buis1 = pygame.Surface((80,200))
+buis1.fill("green")
+
 
 while running:
 
@@ -25,7 +29,8 @@ while running:
     if event.type == pygame.QUIT:
       running = False
 
-  screen.blit(surface, (0, 0))
+  screen.blit(surface, (00, 0))
+  screen.blit(buis1, (180,0))
   
   pygame.display.update()
   clock.tick(60)
