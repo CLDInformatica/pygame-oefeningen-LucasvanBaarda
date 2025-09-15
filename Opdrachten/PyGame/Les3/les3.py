@@ -24,6 +24,9 @@ background_surface.fill("white")
 auto_surface = pygame.image.load("Opdrachten/PyGame/Les3/graphics/auto.png").convert_alpha()
 auto_x_pos = 200
 
+regen_surface = pygame.image.load("Opdrachten/PyGame/Les3/graphics/Regendruppel.png").convert_alpha()
+regen_y_pos = -500 
+
 while running:
 
     for event in pygame.event.get():
@@ -31,9 +34,18 @@ while running:
       running = False
 
     screen.blit(background_surface, (0, 0))
+    
+
+    regen_y_pos += 5
+    screen.blit(regen_surface, (0, regen_y_pos))
+    if regen_y_pos > 400:
+        regen_y_pos = -500
 
     auto_x_pos += 1
     screen.blit(auto_surface, (auto_x_pos, 200))
+    if auto_x_pos > 800:
+        auto_x_pos = -100
+
 
     pygame.display.update()
     clock.tick(60)
