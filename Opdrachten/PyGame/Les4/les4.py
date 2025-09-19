@@ -36,10 +36,16 @@ background_surface.fill("white")
 weg_surface = pygame.image.load("Opdrachten/PyGame/Les4/graphics/weg.png").convert()
 
 auto_surface = pygame.image.load("Opdrachten/PyGame/Les4/graphics/auto.png").convert_alpha()
-auto_rect = auto_surface.get_rect(bottom = 350)
+auto_rect = auto_surface.get_rect(bottom = 250)
 
 obstakel_surface = pygame.image.load("Opdrachten/PyGame/Les4/graphics/obstakel.png").convert_alpha()
 obstakel_rect = obstakel_surface.get_rect(bottomleft = (625, 280))
+
+End_font = pygame.font.Font(None,80)
+End_surface = End_font.render("Je bent gebotst downie!", True, (240,0,0))
+
+game_over = 0
+
 
 while running:
 
@@ -47,6 +53,9 @@ while running:
     if event.type == pygame.QUIT:
       running = False
 
+
+
+    # continue
   screen.blit(background_surface, (0, 0))
   screen.blit(weg_surface, (0, 75))
   screen.blit(obstakel_surface, obstakel_rect)
@@ -56,5 +65,20 @@ while running:
     auto_rect.right = 0
   screen.blit(auto_surface, auto_rect)
 
+
+  if auto_rect.colliderect(obstakel_rect):
+    print("Collision!")
+    auto_rect.right = 0
+    game_over = 100
+  if game_over > 0:
+    game_over -= 1
+
+  if game_over > 0: 
+    screen.blit(End_surface, (120,110))
+
+
   pygame.display.update()
   clock.tick(60)
+
+
+
