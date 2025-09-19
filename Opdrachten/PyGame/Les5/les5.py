@@ -38,6 +38,7 @@ background_surface.fill("white")
 tekst_surface = test_font.render("Stukje tekst!", False, "green")
 tekst_rect = tekst_surface.get_rect(center = (200, 150))
 
+
 while True:
   
   for event in pygame.event.get():
