@@ -35,7 +35,7 @@ clock = pygame.time.Clock()
 background_surface = pygame.Surface((400, 300))
 background_surface.fill("white")
 
-tekst_surface = test_font.render("Stukje tekst!", False, "green")
+tekst_surface = test_font.render("Tekst!", False, "blue")
 tekst_rect = tekst_surface.get_rect(center = (200, 150))
 
 
@@ -46,15 +46,16 @@ while True:
       pygame.quit()
       sys.exit() 
       
-    if event.type == pygame.MOUSEMOTION:
-      if tekst_rect.collidepoint(event.pos):
-        print("Collision")
+  
     if event.type == pygame.MOUSEBUTTONDOWN:
       if tekst_rect.collidepoint(event.pos):
-        print("Tekst ingedrukt")
-    if event.type == pygame.MOUSEBUTTONUP:
-      if tekst_rect.collidepoint(event.pos):
-        print("Tekst losgelaten")
+        tekst_rect.x += 20
+    if tekst_rect.right > 400: 
+      tekst_surface = test_font.render("Gewonnen!", False, "red")
+      tekst_rect = tekst_surface.get_rect(center = (200, 150))  
+      
+
+
 
   screen.blit(background_surface, (0, 0))
   screen.blit(tekst_surface, tekst_rect)
